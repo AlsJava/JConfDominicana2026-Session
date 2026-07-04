@@ -5,3 +5,64 @@
 [![Maven](https://img.shields.io/badge/Maven-3.9.16-blue.svg)](https://maven.apache.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+## Talk / Charla
+
+### Arquitectura, Ingeniería y Desarrollo de Microservicios con Spring Boot
+
+---
+
+#### Descripción / Description
+
+Damos por hechas muchas cosas cuando usamos términos como **Ingeniería o Arquitectura**, pero estos tienen propósitos
+muy explícitos y visiones del negocio desde un entendimiento diferente. Hablar de una arquitectura de microservicios es
+muy ambiguo, porque tenemos múltiples formas de la misma (por ejemplo: **orientada a eventos, Gateway, serverless, mixta
+**, etc.). Esto deja muchas preguntas, pero la información es la pieza fundamental y **te ayudaré a tomar decisiones
+efectivas en los 3 niveles.**
+
+Porque la arquitectura de microservicios llegó para quedarse, pero tiene retos importantes y con esta pequeña charla
+busco que veas como ingeniero las soluciones de microservicios y no solo como un desarrollador, que solo usa
+tecnologías sin un criterio de los elementos de relevancia para el negocio.
+
+Cada solución tiene sus virtudes y problemas. Por lo que una **mala decisión** impacta fuertemente en ámbitos como:
+
+- Desarrollo en equipos grandes o multi-equipo
+- Rendimiento de la solución
+- Costos operativos de la solución
+- Mantenibilidad del código en el tiempo
+- Complejidad del código para nuevos recursos
+- Y muchos otros aspectos más
+
+Ahora, **¿qué implica la ingeniería en este punto?** Pues es, en pocas palabras, la construcción logística de la
+arquitectura. Podemos hablar de microservicios por eventos, pero ¿con qué se hará? ¿Kafka?, ¿RabbitMQ?, ¿Cloud Native
+Option? Y encima a esto, también debemos entender qué framework, técnica de implementación y/o patrón usaremos en la
+solución afectarán todos los aspectos. Tenemos muchas decisiones técnicas que tomar y cada una de ellas tiene un peso
+importante en la dirección que queremos llevar nuestra solución.
+
+---
+
+### Architecture, Engineering, and Development of Micro-services with Spring Boot
+
+We take many things for granted when we use terms like **Engineering or Architecture**, but these have very explicit
+purposes and business visions from a different understanding. Talking about a microservices architecture is very
+ambiguous because there are multiple forms of it (e.g.: **event-driven, Gateway, serverless, hybrid**, etc.). This
+leaves many questions, but information is the fundamental piece, and **I'll help you make effective decisions at all 3
+levels.**
+
+Because microservices architecture is here to stay, but it has important challenges. With this talk, I want you to see
+microservice solutions as an engineer — not just as a developer who uses technologies without considering the
+business-relevant elements.
+
+Every solution has its strengths and problems. A **bad decision** heavily impacts areas such as:
+
+- Development in large or multi-team environments
+- Solution performance
+- Operational costs
+- Code maintainability over time
+- Code complexity for new features
+- And many other aspects
+
+Now, **what does engineering mean in this context?** In a few words, it's the logistical construction of the
+architecture. We can talk about event-driven microservices, but what will be used to build them? Kafka? RabbitMQ? A
+Cloud Native Option? On top of that, we must understand which framework, implementation technique, and/or pattern we'll
+use — and how each will affect every aspect. We have many technical decisions to make, and each one carries significant
+weight in the direction we want to take our solution.
