@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: @project.artifactId@
+  config:
+    import:
+      - configurations/actuator-configuration.yml
+      - configurations/logging-configuration.yml
+      - configurations/server-configuration.yml

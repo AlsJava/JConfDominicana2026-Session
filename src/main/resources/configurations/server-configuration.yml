@@ -1,0 +1,20 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  http:
+    converters:
+      preferred-json-mapper: jackson
+      string-encoding-charset: UTF-8
+    clients:
+      imperative:
+        factory: http_components
+server:
+  http2:
+    enabled: true
+  netty:
+    idle-timeout: ${SERVER_TIMEOUT:120s}
+  compression:
+    enabled: true
+    min-response-size: 1KB
+    mime-types: application/json
