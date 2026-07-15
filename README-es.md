@@ -43,7 +43,7 @@ Cada solución tiene sus virtudes y problemas. Por lo que una **mala decisión**
 - Rendimiento de la solución
 - Costos operativos de la solución
 - Mantenibilidad del código en el tiempo
-- Complejidad del código para nuevos recursos
+- Complejidad del código para nuevos desarrolladores
 - Y muchos otros aspectos más
 
 Ahora, **¿qué implica la ingeniería en este punto?** Pues es, en pocas palabras, la construcción logística de la

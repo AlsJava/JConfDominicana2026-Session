@@ -43,7 +43,7 @@ Every solution has its strengths and problems. A **bad decision** heavily impact
 - Solution performance
 - Operational costs
 - Code maintainability over time
-- Code complexity for new features
+- Code complexity for new developers
 - And many other aspects
 
 Now, **what does engineering mean in this context?** In a few words, it's the logistical construction of the
