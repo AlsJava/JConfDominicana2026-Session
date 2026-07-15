@@ -20,6 +20,7 @@ public class ObjectMapperConfiguration {
             log.info("Applying JsonMapperBuilderCustomizer configuration");
             jsonMapperBuilder.disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS);
             jsonMapperBuilder.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+            jsonMapperBuilder.findAndAddModules();
         };
     }
 
@@ -29,6 +30,7 @@ public class ObjectMapperConfiguration {
             log.info("Applying XmlMapperBuilderCustomizer configuration");
             xmlMapperBuilder.disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS);
             xmlMapperBuilder.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+            xmlMapperBuilder.findAndAddModules();
         };
     }
 }
