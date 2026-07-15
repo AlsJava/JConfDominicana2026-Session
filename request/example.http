@@ -1,0 +1,21 @@
+### Example: POST /example/sum
+POST {{serverURL}}/example/sum
+Content-Type: application/json
+
+{
+  "number1": 15.5,
+  "number2": 25.25
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    client.test("Response content type is JSON", function() {
+        const type = response.headers.valueOf("Content-Type");
+        client.assert(type.includes("application/json"), "Expected JSON but got " + type);
+    });
+    client.test("Response result is correct", function() {
+        client.assert(response.body.result === 40.75, "Expected result 40.75 but got " + response.body.result);
+    });
+%}

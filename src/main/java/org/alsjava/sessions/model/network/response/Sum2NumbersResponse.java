@@ -1,15 +1,16 @@
 package org.alsjava.sessions.model.network.response;
 
 import lombok.*;
-import org.alsjava.sessions.model.DemoDto;
 import org.alsjava.sessions.model.network.AbstractResponse;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Getter
 @Setter
-public class CreateDemoResponse extends AbstractResponse {
+public class Sum2NumbersResponse extends AbstractResponse {
 
-    private DemoDto demoDto;
+    private BigDecimal result;
 }

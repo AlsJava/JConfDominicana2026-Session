@@ -1,7 +1,7 @@
-package com.purrbyte.aitools.util;
+package org.alsjava.sessions.util;
 
-import com.purrbyte.aitools.model.network.APIError;
 import lombok.RequiredArgsConstructor;
+import org.alsjava.sessions.model.network.APIError;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

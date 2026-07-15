@@ -4,12 +4,8 @@ spring:
       enabled: ${DEVTOOL_ENABLED:false}
       poll-interval: 2s
       quiet-period: 1s
-  h2:
-    console:
-      enabled: ${H2_CONSOLE_ENABLED:true}
 dev:
   advice:
     show-line-numbers: ${DEV_ADVICE_SHOW_LINE_NUMBERS:true}
     show-stack-trace: ${DEV_ADVICE_SHOW_STACK_TRACE:true}
     debug-console: ${DEV_ADVICE_DEBUG_CONSOLE:true}
-

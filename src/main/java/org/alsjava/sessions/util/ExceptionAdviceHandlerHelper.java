@@ -1,8 +1,8 @@
-package com.purrbyte.aitools.util;
+package org.alsjava.sessions.util;
 
-import com.purrbyte.aitools.model.network.APIError;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.alsjava.sessions.model.network.APIError;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;

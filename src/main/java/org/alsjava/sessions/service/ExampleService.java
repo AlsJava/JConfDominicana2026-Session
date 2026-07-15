@@ -1,23 +1,23 @@
-package com.purrbyte.aitools.service;
+package org.alsjava.sessions.service;
 
-import com.purrbyte.aitools.command.GetDemoCommand;
-import com.purrbyte.aitools.model.network.request.CreateDemoRequest;
-import com.purrbyte.aitools.model.network.response.CreateDemoResponse;
-import com.purrbyte.aitools.pattern.command.CommandBus;
 import io.micrometer.observation.annotation.Observed;
 import lombok.RequiredArgsConstructor;
+import org.alsjava.sessions.command.Sum2NumbersCommand;
+import org.alsjava.sessions.model.network.request.Sum2NumbersRequest;
+import org.alsjava.sessions.model.network.response.Sum2NumbersResponse;
+import org.alsjava.sessions.pattern.command.CommandBus;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Observed(name = "service.DemoService")
-public class DemoService {
+@Observed(name = "service.ExampleService")
+public class ExampleService {
 
     private final CommandBus commandBus;
 
-    public CreateDemoResponse create(CreateDemoRequest createDemoRequest) {
-        return commandBus.sendCommand(GetDemoCommand.builder()
-                .createDemoRequest(createDemoRequest)
+    public Sum2NumbersResponse sum2Numbers(Sum2NumbersRequest sum2NumbersRequest) {
+        return commandBus.sendCommand(Sum2NumbersCommand.builder()
+                .sum2NumbersRequest(sum2NumbersRequest)
                 .build()
         );
     }
