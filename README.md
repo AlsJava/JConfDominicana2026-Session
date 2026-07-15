@@ -5,6 +5,20 @@
 [![Maven](https://img.shields.io/badge/Maven-3.9.16-blue.svg)](https://maven.apache.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+## Speaker
+
+### Aluis Marte
+
+Systems and Computer Engineer with over 12+ years of experience in sectors such as lottery, casino, credit
+information, aviation, and more.
+
+Cat lover with 3 cats and a daughter named Zelda. Passionate about Java development with Spring Boot and AI — how to
+use it, and how to manage and configure it for Local AI setups.
+
+[LinkedIn](https://www.linkedin.com/in/aluis-marte-5159b267)
+
+---
+
 ## Talk
 
 ### Architecture, Engineering, and Development of Micro-services with Spring Boot

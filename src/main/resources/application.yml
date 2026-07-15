@@ -6,3 +6,4 @@ spring:
       - configurations/actuator-configuration.yml
       - configurations/logging-configuration.yml
       - configurations/server-configuration.yml
+      - configurations/pattern/cqrs-configuration.yml

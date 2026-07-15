@@ -5,6 +5,20 @@
 [![Maven](https://img.shields.io/badge/Maven-3.9.16-blue.svg)](https://maven.apache.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+## Charlista
+
+### Aluis Marte
+
+Ingeniero en sistemas y Computación con más de 12+ años de experiencia en sectores como lotería, casino, información
+crediticia, aviación, entre otros.
+
+Cat lover con 3 gatos y una hija llamada Zelda. Apasionado por el desarrollo en Java con Spring Boot y la AI — su uso,
+manejo y configuración para AI Local.
+
+[LinkedIn](https://www.linkedin.com/in/aluis-marte-5159b267)
+
+---
+
 ## Charla
 
 ### Arquitectura, Ingeniería y Desarrollo de Microservicios con Spring Boot
@@ -15,9 +29,9 @@
 
 Damos por hechas muchas cosas cuando usamos términos como **Ingeniería o Arquitectura**, pero estos tienen propósitos
 muy explícitos y visiones del negocio desde un entendimiento diferente. Hablar de una arquitectura de microservicios es
-muy ambiguo, porque tenemos múltiples formas de la misma (por ejemplo: **orientada a eventos, Gateway, serverless, mixta
-**, etc.). Esto deja muchas preguntas, pero la información es la pieza fundamental y **te ayudaré a tomar decisiones
-efectivas en los 3 niveles.**
+muy ambiguo, porque tenemos múltiples formas de la misma (por ejemplo: **orientada a eventos, Gateway, serverless,
+mixta, etc.)**. Esto deja muchas preguntas, pero la información es la pieza fundamental y **te ayudaré a tomar
+decisiones efectivas en los 3 niveles.**
 
 Porque la arquitectura de microservicios llegó para quedarse, pero tiene retos importantes y con esta pequeña charla
 busco que veas como ingeniero las soluciones de microservicios y no solo como un desarrollador, que solo usa
