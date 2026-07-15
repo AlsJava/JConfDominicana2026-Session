@@ -3,7 +3,8 @@ spring:
     name: @project.artifactId@
   config:
     import:
+      - configurations/develop/dev-configuration.yml
+      - configurations/pattern/cqrs-configuration.yml
       - configurations/actuator-configuration.yml
       - configurations/logging-configuration.yml
       - configurations/server-configuration.yml
-      - configurations/pattern/cqrs-configuration.yml

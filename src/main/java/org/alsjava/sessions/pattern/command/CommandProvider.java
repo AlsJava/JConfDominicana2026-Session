@@ -1,7 +1,9 @@
 package org.alsjava.sessions.pattern.command;
 
 import lombok.extern.slf4j.Slf4j;
-import org.jspecify.annotations.NonNull;
+import org.alsjava.sessions.model.exception.CommandNotInheritException;
+import org.alsjava.sessions.model.exception.DuplicateCommandException;
+import org.alsjava.sessions.model.exception.InvalidCommandEventException;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -10,9 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-@ConditionalOnProperty(prefix = "pattern.cqrs", name = "enabled", havingValue = "true")
-@Component
 @Slf4j
+@Component
+@ConditionalOnProperty(prefix = "pattern.cqrs", name = "enabled", havingValue = "true")
 public class CommandProvider implements BeanPostProcessor {
 
     @SuppressWarnings("rawtypes")
@@ -25,12 +27,22 @@ public class CommandProvider implements BeanPostProcessor {
 
     @SuppressWarnings("rawtypes")
     @Override
-    public Object postProcessAfterInitialization(Object bean, @NonNull String beanName) throws BeansException {
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Class<?> clazz = bean.getClass();
         if (clazz.isAnnotationPresent(CommandEvent.class)) {
-            log.info("Configuring command: {}", clazz);
-            Class<? extends Command> command = clazz.getAnnotation(CommandEvent.class).command();
-            registry.put(command, (CommandHandler) bean);
+            if (bean instanceof CommandHandler commandHandler) {
+                log.info("Configuring command: {}", clazz);
+                Class<? extends Command> command = clazz.getAnnotation(CommandEvent.class).command();
+                if (registry.containsKey(command)) {
+                    throw new DuplicateCommandException(bean);
+                }
+                if (command.equals(Command.class)) {
+                    throw new InvalidCommandEventException(bean);
+                }
+                registry.put(command, commandHandler);
+            } else {
+                throw new CommandNotInheritException(bean);
+            }
         }
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }

@@ -14,6 +14,8 @@
     <artifactId>ConfDominicana2026-Session</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
+        <!-- https://central.sonatype.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+        <openapi.version>3.0.3</openapi.version>
         <!-- https://central.sonatype.com/artifact/com.vaadin/vaadin-bom -->
         <vaadin.version>25.2.2</vaadin.version>
         <!-- https://central.sonatype.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
@@ -40,15 +42,15 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-micrometer-metrics</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-integration</artifactId>
         </dependency>
         <!-- Complements -->
         <dependency>
@@ -78,6 +80,12 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- Others -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${openapi.version}</version>
+        </dependency>
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -94,13 +102,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.vaadin</groupId>-->
-<!--                <artifactId>vaadin-bom</artifactId>-->
-<!--                <version>${vaadin.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.vaadin</groupId>-->
+            <!--                <artifactId>vaadin-bom</artifactId>-->
+            <!--                <version>${vaadin.version}</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
     <build>
