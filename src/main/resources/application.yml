@@ -6,5 +6,7 @@ spring:
       - configurations/develop/dev-configuration.yml
       - configurations/pattern/cqrs-configuration.yml
       - configurations/actuator-configuration.yml
+      - configurations/app-configuration.yml
+      - configurations/fory-configuration.yml
       - configurations/logging-configuration.yml
       - configurations/server-configuration.yml

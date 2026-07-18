@@ -1,0 +1,5 @@
+fory:
+  trusted-package: ${FORY_TRUSTED_PACKAGE:org.alsjava}
+  max-depth: ${FORY_MAX_DEPTH:20}
+  pool:
+    size: ${FORY_POOL_SIZE:10}
