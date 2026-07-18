@@ -52,4 +52,30 @@ Option? Y encima a esto, también debemos entender qué framework, técnica de i
 solución afectarán todos los aspectos. Tenemos muchas decisiones técnicas que tomar y cada una de ellas tiene un peso
 importante en la dirección que queremos llevar nuestra solución.
 
----
+## Inicio Rápido
+
+### Compilar
+
+```bash
+mvn clean package
+```
+
+### Ejecutar
+
+```bash
+java --add-opens=java.base/java.lang.invoke=ALL-UNNAMED -jar target/ConfDominicana2026-Session-1.0.0.jar
+```
+
+> El flag `--add-opens` es necesario al ejecutar el jar directamente. Para `mvn spring-boot:run` y `mvn test`, está configurado en `pom.xml`.
+
+### Ejecutar con Maven
+
+```bash
+mvn spring-boot:run
+```
+
+### Ejecutar Tests
+
+```bash
+mvn test
+```

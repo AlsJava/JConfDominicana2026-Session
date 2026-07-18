@@ -51,3 +51,31 @@ architecture. We can talk about event-driven microservices, but what will be use
 Cloud Native Option? On top of that, we must understand which framework, implementation technique, and/or pattern we'll
 use — and how each will affect every aspect. We have many technical decisions to make, and each one carries significant
 weight in the direction we want to take our solution.
+
+## Quick Start
+
+### Build
+
+```bash
+mvn clean package
+```
+
+### Run
+
+```bash
+java --add-opens=java.base/java.lang.invoke=ALL-UNNAMED -jar target/ConfDominicana2026-Session-1.0.0.jar
+```
+
+> The `--add-opens` flag is required when running the jar directly. For `mvn spring-boot:run` and `mvn test`, it's configured in `pom.xml`.
+
+### Run with Maven
+
+```bash
+mvn spring-boot:run
+```
+
+### Run Tests
+
+```bash
+mvn test
+```
