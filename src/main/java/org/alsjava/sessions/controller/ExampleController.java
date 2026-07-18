@@ -1,5 +1,6 @@
 package org.alsjava.sessions.controller;
 
+import io.micrometer.observation.annotation.Observed;
 import lombok.RequiredArgsConstructor;
 import org.alsjava.sessions.model.network.request.Sum2NumbersRequest;
 import org.alsjava.sessions.model.network.response.Sum2NumbersResponse;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/example")
+@Observed(name = "controller.ExampleController")
 public class ExampleController {
 
     private final ExampleService exampleService;
