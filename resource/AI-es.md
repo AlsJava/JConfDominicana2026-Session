@@ -1,6 +1,6 @@
 # IA en el Desarrollo de Software: Una Guía Pragmática
 
-> La IA está aquí para quedarse. Pero con ella vienen nuevos desafíos que exponen la vacuidad de nuestra documentación.
+> La IA está aquí para quedarse. Pero con ella vienen nuevos desafíos que exponen la deficiencia de nuestra documentación.
 > La IA es una herramienta, no un reemplazo del desarrollador. Creer que la IA es inteligente,
 > que toma decisiones o puede decidir elementos arquitectónicos nos convierte en recursos
 > desprovistos de sentido común — y ese camino lleva al desastre.
