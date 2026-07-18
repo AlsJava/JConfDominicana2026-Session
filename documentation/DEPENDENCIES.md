@@ -21,23 +21,20 @@ Run each command to get the latest version from Sonatype Central:
 # spring-boot-parent (parent POM)
 curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.springframework.boot+AND+a:spring-boot-starter-parent&sort=v+desc&rows=1" | jq '.response.docs[0].v'
 
-# onnxruntime
-curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:com.microsoft.onnxruntime+AND+a:onnxruntime&sort=v+desc&rows=1" | jq '.response.docs[0].v'
-
-# springdoc-openapi-starter-webflux-ui
-curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.springdoc+AND+a:springdoc-openapi-starter-webflux-ui&sort=v+desc&rows=1" | jq '.response.docs[0].v'
-
-# commons-compress
-curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.apache.commons+AND+a:commons-compress&sort=v+desc&rows=1" | jq '.response.docs[0].v'
-
-# hibernate-search-bom
-curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.hibernate.search+AND+a:hibernate-search-bom&sort=v+desc&rows=1" | jq '.response.docs[0].v'
-
-# spring-ai-bom
-curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.springframework.ai+AND+a:spring-ai-bom&sort=v+desc&rows=1" | jq '.response.docs[0].v'
+# springdoc-openapi-starter-webmvc-ui
+curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.springdoc+AND+a:springdoc-openapi-starter-webmvc-ui&sort=v+desc&rows=1" | jq '.response.docs[0].v'
 
 # spring-cloud-dependencies
 curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.springframework.cloud+AND+a:spring-cloud-dependencies&sort=v+desc&rows=1" | jq '.response.docs[0].v'
+
+# fastjson2
+curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:com.alibaba.fastjson2+AND+a:fastjson2&sort=v+desc&rows=1" | jq '.response.docs[0].v'
+
+# fory-core
+curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.apache.fory+AND+a:fory-core&sort=v+desc&rows=1" | jq '.response.docs[0].v'
+
+# lombok
+curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.projectlombok+AND+a:lombok&sort=v+desc&rows=1" | jq '.response.docs[0].v'
 ```
 
 ### One-Liner — Check Everything at Once
@@ -45,12 +42,11 @@ curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:org.springfr
 ```bash
 for dep in \
   "org.springframework.boot:spring-boot-starter-parent" \
-  "com.microsoft.onnxruntime:onnxruntime" \
-  "org.springdoc:springdoc-openapi-starter-webflux-ui" \
-  "org.apache.commons:commons-compress" \
-  "org.hibernate.search:hibernate-search-bom" \
-  "org.springframework.ai:spring-ai-bom" \
-  "org.springframework.cloud:spring-cloud-dependencies"; do
+  "org.springdoc:springdoc-openapi-starter-webmvc-ui" \
+  "org.springframework.cloud:spring-cloud-dependencies" \
+  "com.alibaba.fastjson2:fastjson2" \
+  "org.apache.fory:fory-core" \
+  "org.projectlombok:lombok"; do
   IFS=':' read -r g a <<< "$dep"
   latest=$(curl -s "https://central.sonatype.com/solrsearch/select?wt=json&q=g:${g}+AND+a:${a}&sort=v+desc&rows=1" | jq -r '.response.docs[0].v')
   echo "${a}: ${latest}"
@@ -70,16 +66,23 @@ Format as:
 
 **Always verify:**
 
-- All version properties in `<properties>` (the ones with Sonatype comment links)
+- All version properties in `<properties>` (the ones with Sonatype comment links):
+  - `fastjson2.version` (2.0.62)
+  - `fory.version` (1.3.0)
+  - `openapi.version` (3.0.3)
+  - `vaadin.version` (25.2.2) — currently commented out
+  - `spring-cloud.version` (2025.1.2)
 - Dependencies with explicit `<version>` tags not managed by a BOM or parent
 
 **Check periodically (monthly or on major releases):**
 
-- Dependencies managed by `spring-boot-parent` but not pinned (e.g., `sqlite-jdbc`, `httpclient5`, `lombok`)
+- Dependencies managed by `spring-boot-parent` but not pinned (e.g., `httpclient5`, `lombok`)
 - Plugin versions in `<build><plugins>` (versions are inherited from parent)
 
 **Do NOT need separate checks:**
 
-- Artifacts already managed by a BOM import (`spring-cloud-dependencies`, `spring-ai-bom`, `hibernate-search-bom`) —
+- Artifacts already managed by a BOM import (`spring-cloud-dependencies`) —
   their transitive versions are controlled by the BOM
 - Dependencies where the version is inherited from `spring-boot-parent` and the parent is up to date
+
+**Note:** The `vaadin-bom` import is currently commented out in `pom.xml` and not actively used.
