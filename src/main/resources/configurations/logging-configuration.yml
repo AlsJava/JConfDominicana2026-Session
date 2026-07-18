@@ -7,3 +7,7 @@ logging:
   file:
     name: ${logging.file.path}/${spring.application.name}/output.log
     path: ${LOGGING_PATH_DIRECTORY:./logs}
+log:
+  request:
+    enabled: ${LOG_REQUEST_ENABLED:true}
+    max-payload-length: ${LOG_REQUEST_MAX_PAYLOAD_LENGTH:10000}

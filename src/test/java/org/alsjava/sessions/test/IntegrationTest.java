@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.EnabledIf;
 import tools.jackson.databind.json.JsonMapper;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Tag(BaseTest.TAG_INTEGRATION)
 @EnabledIf("${test.integration.enabled:false}")
 public abstract class IntegrationTest extends BaseTest {
