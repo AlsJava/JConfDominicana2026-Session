@@ -52,6 +52,19 @@ Cloud Native Option? On top of that, we must understand which framework, impleme
 use — and how each will affect every aspect. We have many technical decisions to make, and each one carries significant
 weight in the direction we want to take our solution.
 
+## Guides & References
+
+The repository includes practice guides in the [`resource/`](resource/) folder that dive deeper into the talk's topics:
+
+- [**DEVELOPMENT.md**](resource/DEVELOPMENT.md) — Architecture paradigms, team dynamics, and decision frameworks
+- [**AI.md**](resource/AI.md) — Pragmatic AI usage for software development
+- [**MAINTAINABILITY.md**](resource/MAINTAINABILITY.md) — Documentation levels and maintainability practices
+- [**SOLUTION_PERFORMANCE.md**](resource/SOLUTION_PERFORMANCE.md) — Performance patterns beyond Big-O
+
+See the [resource README](resource/README.md) for a full index and guidance on which guide to read.
+
+---
+
 ## Quick Start
 
 ### Build

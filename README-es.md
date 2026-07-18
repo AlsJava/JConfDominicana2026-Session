@@ -52,6 +52,19 @@ Option? Y encima a esto, también debemos entender qué framework, técnica de i
 solución afectarán todos los aspectos. Tenemos muchas decisiones técnicas que tomar y cada una de ellas tiene un peso
 importante en la dirección que queremos llevar nuestra solución.
 
+## Guías y Referencias
+
+El repositorio incluye guías prácticas en la carpeta [`resource/`](resource/) que profundizan en los temas de la charla:
+
+- [**DEVELOPMENT-es.md**](resource/DEVELOPMENT-es.md) — Paradigmas de arquitectura, dinámica de equipos y marcos de decisión
+- [**AI-es.md**](resource/AI-es.md) — Uso pragmático de la IA en el desarrollo de software
+- [**MAINTAINABILITY-es.md**](resource/MAINTAINABILITY-es.md) — Niveles de documentación y prácticas de mantenibilidad
+- [**SOLUTION_PERFORMANCE-es.md**](resource/SOLUTION_PERFORMANCE-es.md) — Patrones de rendimiento más allá de Big-O
+
+Consulta el [README de resource](resource/README-es.md) para el índice completo y orientación sobre qué guía leer.
+
+---
+
 ## Inicio Rápido
 
 ### Compilar

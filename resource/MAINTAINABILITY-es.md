@@ -1,111 +1,112 @@
-# Maintainability and Documentation in Software
+# Mantenibilidad y Documentación en Software
 
-## The beginning of chaos
+## El comienzo del caos
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
-│   CODE WITHOUT DOCUMENTATION                                │
+│   CÓDIGO SIN DOCUMENTACIÓN                                  │
 │                                                             │
 │        ╔═══════════════════════════════════════╗             │
 │        ║                                     ║             │
-│        ║   DARK ZONE                         ║             │
+│        ║   ZONA OSCURA                       ║             │
 │        ║   ┌─────────────────────┐           ║             │
-│        ║   │  "Don't touch this"│           ║             │
-│        ║   │  "If it works,     │           ║             │
-│        ║   │   don't fix it"    │           ║             │
+│        ║   │  "No toques esto"  │           ║             │
+│        ║   │  "Si funciona,     │           ║             │
+│        ║   │   no lo arregles"  │           ║             │
 │        ║   └─────────────────────┘           ║             │
 │        ║                                     ║             │
-│        ║   Nobody modifies → The business    ║             │
-│        ║   depends on code nobody understands║             │
+│        ║   Nadie modifica → El negocio      ║             │
+│        ║   depende de código que nadie       ║             │
+│        ║   entiende                          ║             │
 │        ║                                     ║             │
 │        ╚═══════════════════════════════════════╝             │
 │                                                             │
-│   Result: CHAOS                                             │
+│   Resultado: CAOS                                           │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **The root cause is not code complexity, it is the absence of documentation.**
-> Code with too much engineering and no corresponding documentation is
-> fertile ground for chaos.
+> **La causa raíz no es la complejidad del código, es la ausencia de documentación.**
+> El código con demasiada ingeniería y sin documentación correspondiente es
+> terreno fértil para el caos.
 
-The right question is not *"do we document?"* — it is **"do we document correctly?"**.
+La pregunta correcta no es *"¿documentamos?"* — es **"¿documentamos correctamente?"**.
 
 ---
 
-## The 5 levels of documentation
+## Los 5 niveles de documentación
 
 ```
                     ┌──────────────────────┐
-                    │   DOCUMENTATION      │
-                    │   ARCHITECTURE       │
-                    │   (Level 1)          │
-                    │   "The forest"       │
+                    │   DOCUMENTACIÓN      │
+                    │   DE ARQUITECTURA    │
+                    │   (Nivel 1)          │
+                    │   "El bosque"        │
                     └──────────┬───────────┘
                                │
                     ┌──────────▼───────────┐
-                    │   DEVELOPMENT        │
-                    │   DOCUMENTATION      │
-                    │   (Level 2)          │
-                    │   "The trees"        │
+                    │   DOCUMENTACIÓN      │
+                    │   DE DESARROLLO      │
+                    │   (Nivel 2)          │
+                    │   "Los árboles"      │
                     └──────────┬───────────┘
                                │
                     ┌──────────▼───────────┐
-                    │   USER               │
-                    │   DOCUMENTATION      │
-                    │   (Level 3)          │
-                    │   "The manual"       │
+                    │   DOCUMENTACIÓN      │
+                    │   DE USUARIO         │
+                    │   (Nivel 3)          │
+                    │   "El manual"        │
                     └──────────┬───────────┘
                                │
                     ┌──────────▼───────────┐
-                    │   API                │
-                    │   DOCUMENTATION      │
-                    │   (Level 4)          │
-                    │   "The bridge"       │
+                    │   DOCUMENTACIÓN      │
+                    │   DE API             │
+                    │   (Nivel 4)          │
+                    │   "El puente"        │
                     └──────────┬───────────┘
                                │
                     ┌──────────▼───────────┐
-                    │   CODE               │
-                    │   DOCUMENTATION      │
-                    │   (Level 5)          │
-                    │   "The roots"        │
+                    │   DOCUMENTACIÓN      │
+                    │   DE CÓDIGO          │
+                    │   (Nivel 5)          │
+                    │   "Las raíces"      │
                     └──────────────────────┘
 ```
 
-### Knowledge flow between levels
+### Flujo de conocimiento entre niveles
 
 ```
-  Business ──→ [PO / Product Owner] ──→ Development Documentation
+  Negocio ──→ [PO / Product Owner] ──→ Documentación de Desarrollo
        │                                      │
        │                                      ▼
-       │                              Use cases, features, interactions
+       │                              Casos de uso, features, interacciones
        │
        ▼
-  Developers ──→ [Architect] ──→ Architecture Documentation
+  Desarrolladores ──→ [Arquitecto] ──→ Documentación de Arquitectura
        │                                    │
        │                                    ▼
-       │                            Flow diagrams, queues, DBs, services
+       │                            Diagramas de flujo, colas, BDs, servicios
        │
        ▼
-  Integrators ──→ [Tools] ──→ API Documentation (Swagger, etc.)
+  Integradores ──→ [Herramientas] ──→ Documentación de API (Swagger, etc.)
        │
        ▼
-  Maintainers ──→ [Developers] ──→ Code Documentation (Javadoc,
-                                            comments, MD next to source)
+  Mantenedores ──→ [Desarrolladores] ──→ Documentación de Código (Javadoc,
+                                              comentarios, MD junto al código)
 ```
 
 ---
 
-## Breakdown of each level
+## Desglose de cada nivel
 
-### Level 1 — Architecture Documentation
+### Nivel 1 — Documentación de Arquitectura
 
-**What is it?** A high-level representation of how the application is designed.
+**¿Qué es?** Una representación de alto nivel de cómo está diseñada la aplicación.
 
 ```
                     ┌──────────┐
-                    │  CLIENT  │
+                    │  CLIENTE │
                     └────┬─────┘
                          │ HTTP
                          ▼
@@ -116,107 +117,106 @@ The right question is not *"do we document?"* — it is **"do we document correc
               ┌──────────┼──────────┐
               ▼                     ▼
      ┌────────────────┐    ┌────────────────┐
-     │   SERVICE A    │    │   SERVICE B    │
+     │   SERVICIO A   │    │   SERVICIO B   │
      └───────┬────────┘    └───────┬────────┘
              │                     │
              ▼                     ▼
      ┌──────────────┐      ┌──────────────┐
-     │   DATABASE A │      │   DATABASE B │
+     │   BD A       │      │   BD B       │
      └──────────────┘      └──────────────┘
 
      ┌──────────────────────────────────────┐
-     │           QUEUE (Kafka)               │
-     │   Service A ──→ Queue ──→ Service B   │
+     │           COLA (Kafka)                │
+     │   Servicio A ──→ Cola ──→ Servicio B  │
      └──────────────────────────────────────┘
 ```
 
-**Typical content:**
+**Contenido típico:**
 
-- Component diagrams and their interactions
-- Visual representation of queues (Kafka, RabbitMQ)
-- Entity-level database schema
-- Request flow from client to backend
-- **Ignores** low-level details like networking, hardware — but may include them if considered useful for onboarding new
-  developers
+- Diagramas de componentes y sus interacciones
+- Representación visual de colas (Kafka, RabbitMQ)
+- Esquema de base de datos a nivel de entidades
+- Flujo de solicitud desde el cliente hasta el backend
+- **Ignora** detalles de bajo nivel como redes, hardware — pero puede incluirlos si se considera útil para el onboarding de nuevos desarrolladores
 
-**Audience:** Architects, Tech Leads, new developers (big-picture view).
+**Audiencia:** Arquitectos, Tech Leads, nuevos desarrolladores (vista de gran alcance).
 
 ---
 
-### Level 2 — Development Documentation
+### Nivel 2 — Documentación de Desarrollo
 
-**Who generates it?** The Product Owner / Business Analyst.
+**¿Quién la genera?** El Product Owner / Analista de Negocio.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  USE CASE: "Create Order"                   │
+│                  CASO DE USO: "Crear Pedido"                │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  Actor: Customer                                            │
-│  Precondition: User is authenticated                        │
+│  Actor: Cliente                                             │
+│  Precondición: Usuario autenticado                          │
 │                                                             │
-│  Main flow:                                                 │
-│  1. Customer browses the catalog                            │
-│  2. Selects products and adds them to cart                  │
-│  3. Reviews order summary                                   │
-│  4. Confirms purchase                                       │
-│  5. System creates the order and sends notification         │
+│  Flujo principal:                                           │
+│  1. Cliente navega el catálogo                              │
+│  2. Selecciona productos y los añade al carrito             │
+│  3. Revisa el resumen del pedido                            │
+│  4. Confirma la compra                                      │
+│  5. El sistema crea el pedido y envía notificación         │
 │                                                             │
-│  Alternative flow:                                          │
-│  2a. Product out of stock → show availability message       │
-│  4a. Payment declined → show error and allow retry          │
+│  Flujo alternativo:                                         │
+│  2a. Producto sin stock → mostrar mensaje de disponibilidad │
+│  4a. Pago rechazado → mostrar error y permitir reintentar   │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Typical content:**
+**Contenido típico:**
 
-- Use cases with actors and flows
-- System interactions
-- Features and business behaviors
-- **Contains no technical detail** — it is the accumulation of scenarios
+- Casos de uso con actores y flujos
+- Interacciones del sistema
+- Features y comportamientos de negocio
+- **No contiene detalle técnico** — es la acumulación de escenarios
 
-**Audience:** Product Owners, Stakeholders, QA, Business Analysts.
+**Audiencia:** Product Owners, Stakeholders, QA, Analistas de Negocio.
 
 ---
 
-### Level 3 — User Documentation
+### Nivel 3 — Documentación de Usuario
 
-**What is it?** The semi-technical manual on how a user operates the application.
+**¿Qué es?** El manual semi-técnico de cómo un usuario opera la aplicación.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 1: Log in                                             │
+│  PASO 1: Iniciar sesión                                     │
 │  ┌─────────────────────────────────────────────────────┐    │
 │  │                                                     │    │
 │  │   ┌───────────────────────────────────────┐         │    │
-│  │   │  [ Username: user@example.com ]       │         │    │
-│  │   │  [ Password: ******              ]    │         │    │
-│  │   │  [   LOG IN                  ]        │         │    │
+│  │   │  [ Usuario: user@example.com ]        │         │    │
+│  │   │  [ Contraseña: ******              ]  │         │    │
+│  │   │  [   INICIAR SESIÓN            ]      │         │    │
 │  │   └───────────────────────────────────────┘         │    │
 │  │                                                     │    │
 │  └─────────────────────────────────────────────────────┘    │
 │                                                             │
-│  STEP 2: Enable notifications                               │
-│  Settings → Profile → Notifications → Toggle ON             │
+│  PASO 2: Habilitar notificaciones                           │
+│  Configuración → Perfil → Notificaciones → Activar ON       │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Typical content:**
+**Contenido típico:**
 
-- Step-by-step instructions (like the instructions on a shampoo bottle)
-- Screenshots with annotations
-- How to enable configurations and daily-use elements
-- Basic troubleshooting
+- Instrucciones paso a paso (como las instrucciones de una botella de shampoo)
+- Capturas de pantalla con anotaciones
+- Cómo habilitar configuraciones y elementos de uso diario
+- Solución básica de problemas
 
-**Audience:** End users, support team, customers.
+**Audiencia:** Usuarios finales, equipo de soporte, clientes.
 
 ---
 
-### Level 4 — API Documentation
+### Nivel 4 — Documentación de API
 
-**What is it?** Auto-generated technical documentation, developer-to-developer.
+**¿Qué es?** Documentación técnica auto-generada, de desarrollador a desarrollador.
 
 ```
 GET /api/v1/orders/{id}
@@ -225,7 +225,7 @@ GET /api/v1/orders/{id}
 │    Authorization: Bearer <token>                            │
 │    Content-Type: application/json                           │
 │                                                             │
-│  Response 200 OK:                                           │
+│  Respuesta 200 OK:                                          │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │ {                                                    │   │
 │  │   "id": 12345,                                       │   │
@@ -237,173 +237,175 @@ GET /api/v1/orders/{id}
 │  └─────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 
-Tools: Swagger / OpenAPI, Postman Collections, Insomnia
+Herramientas: Swagger / OpenAPI, Postman Collections, Insomnia
 ```
 
-**Typical content:**
+**Contenido típico:**
 
-- Endpoints, HTTP methods, parameters
-- Request/response schemas
-- Error codes and their meanings
-- Example API calls
+- Endpoints, métodos HTTP, parámetros
+- Esquemas de solicitud/respuesta
+- Códigos de error y sus significados
+- Ejemplos de llamadas a la API
 
-**Audience:** External developers, integration teams, frontend consuming backend.
+**Audiencia:** Desarrolladores externos, equipos de integración, frontend consumiendo backend.
 
 ---
 
-### Level 5 — Code Documentation
+### Nivel 5 — Documentación de Código
 
-**What is it?** The lowest-level documentation. The kind that enables a system to be maintained over time.
+**¿Qué es?** La documentación de nivel más bajo. La que permite que un sistema sea mantenido a lo largo del tiempo.
 
 ```java
 /**
- * Calculates the order total applying volume discounts.
+ * Calcula el total del pedido aplicando descuentos por volumen.
  *
- * <p>Business rules:
+ * <p>Reglas de negocio:
  * <ul>
- *   <li>5+ units of the same SKU → 5% discount</li>
- *   <li>20+ units → 10% discount</li>
- *   <li>50+ units → 15% discount (requires manager approval)</li>
+ *   <li>5+ unidades del mismo SKU → 5% de descuento</li>
+ *   <li>20+ unidades → 10% de descuento</li>
+ *   <li>50+ unidades → 15% de descuento (requiere aprobación de gerente)</li>
  * </ul>
  *
- * @param items order items list (never null, never empty)
- * @return calculated total with discounts applied
- * @throws IllegalArgumentException if items is null or empty
+ * @param items lista de items del pedido (nunca null, nunca vacía)
+ * @return total calculado con descuentos aplicados
+ * @throws IllegalArgumentException si items es null o vacío
  * @see DiscountService#requiresApproval(int)
  */
 public BigDecimal calculateTotal(List<OrderItem> items) {
-    // ... implementation
+    // ... implementación
 }
 ```
 
-**Typical content:**
+**Contenido típico:**
 
-- Javadoc with business rules explained
-- Comments on complex logic (the "why", not the "what")
-- Markdown/HTML files alongside source code
-- API call examples
-- Tests and concrete results in structured reports
+- Javadoc con reglas de negocio explicadas
+- Comentarios en lógica compleja (el "por qué", no el "qué")
+- Archivos Markdown/HTML junto al código fuente
+- Ejemplos de llamadas a la API
+- Pruebas y resultados concretos en reportes estructurados
 
-**Audience:** Developers maintaining the code, new team members.
+**Audiencia:** Desarrolladores que mantienen el código, nuevos miembros del equipo.
 
 ---
 
-## Comparison table
+## Tabla comparativa
 
 ```
 ┌──────────────────────┬──────────────┬───────────────┬──────────────────────┐
-│ Type                 │ Level        │ Generated by  │ Primary audience     │
+│ Tipo                 │ Nivel        │ Generado por  │ Audiencia principal  │
 ├──────────────────────┼──────────────┼───────────────┼──────────────────────┤
-│ Architecture         │ High (1)     │ Architect     │ Devs, Tech Leads     │
-│ Development          │ Medium (2)   │ Product Owner │ PO, QA, Stakeholders │
-│ User                 │ Medium (3)   │ Tech Writer   │ End users            │
-│ API                  │ Low (4)      │ Tools         │ External developers  │
-│ Code                 │ Lowest (5)   │ Developer     │ Code maintainers     │
+│ Arquitectura         │ Alto (1)     │ Arquitecto    │ Devs, Tech Leads     │
+│ Desarrollo           │ Medio (2)    │ Product Owner │ PO, QA, Stakeholders │
+│ Usuario              │ Medio (3)    │ Redactor Tech │ Usuarios finales     │
+│ API                  │ Bajo (4)     │ Herramientas  │ Desarrolladores ext. │
+│ Código               │ Más bajo (5) │ Desarrollador │ Mantenedores de código│
 └──────────────────────┴──────────────┴───────────────┴──────────────────────┘
 ```
 
 ---
 
-## The dispersion problem
+## El problema de la dispersión
 
 ```
-  Scattered documentation:
+  Documentación dispersa:
 
-  Wiki (Confluence)  ────→ Links to diagrams on Drive
+  Wiki (Confluence)  ────→ Links a diagramas en Drive
                            │
-  Repo README          ────→ Basic instructions
+  Repo README          ────→ Instrucciones básicas
                            │
-  Javadoc in code      ────→ Implementation details
+  Javadoc en código      ────→ Detalles de implementación
                            │
-  Swagger              ────→ API documentation
+  Swagger              ────→ Documentación de API
                            │
-  Internal wiki        ────→ Technical decisions (ADR)
+  Wiki interna         ────→ Decisiones técnicas (ADR)
                            │
   ┌──────────────────────────────────────────────┐
-  │  RESULT: Broken links, lost files,            │
-  │  knowledge that evaporates over time          │
+  │  RESULTADO: Links rotos, archivos perdidos,   │
+  │  conocimiento que se evapora con el tiempo    │
   └──────────────────────────────────────────────┘
 ```
 
-### The solution: documentation as code
+### La solución: documentación como código
 
 ```
-  Documentation inside the repository:
+  Documentación dentro del repositorio:
 
   resource/
-  ├── MAINTAINABILITY.md          ← This guide
-  ├── STRUCTURE.md                ← Project structure
-  ├── README.md                   ← Quick start
-  └── DEVELOPMENT.md              ← Development guide
+  ├── MAINTAINABILITY.md          ← Esta guía
+  ├── STRUCTURE.md                ← Estructura del proyecto
+  ├── README.md                   │─→ Inicio rápido
+  └── DEVELOPMENT.md              ← Guía de desarrollo
 
   docs/
-  ├── architecture/               ← Diagrams and design decisions
+  ├── architecture/               ← Diagramas y decisiones de diseño
   │   ├── system-overview.md
   │   └── data-flow.md
   ├── decisions/                  ← ADRs (Architecture Decision Records)
   │   └── 001-use-fastjson2.md
-  └── api/                        ← Integration guides
+  └── api/                        ← Guías de integración
       └── getting-started.md
 
-  Source code/
-  ├── **/*.java                   ← Javadoc + comments
-  └── **/README.md                ← Module-level explanations
+  Código fuente/
+  ├── **/*.java                   ← Javadoc + comentarios
+  └── **/README.md                ← Explicaciones a nivel de módulo
 
-  ADVANTAGE: Everything lives in the repo → traceable, versioned, recoverable
+  VENTAJA: Todo vive en el repo → trazable, versionado, recuperable
 ```
 
 ---
 
-## Documentation designed for AI
+## Documentación diseñada para IA
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
-│   AI TOOLS (Claude, Copilot, etc.)                          │
+│   HERRAMIENTAS DE IA (Claude, Copilot, etc.)                │
 │          │                                                  │
 │          ▼                                                  │
-│   READ:                                                     │
-│   ├── CLAUDE.md / AGENTS.md        ← Rules and conventions │
-│   ├── Javadoc                          ← Code logic        │
-│   ├── comments                       ← Technical decisions │
-│   ├── Markdown next to source        ← Additional context  │
-│   └── Documentation files            ← Architecture and    │
-│                                            decisions         │
+│   LEE:                                                      │
+│   ├── CLAUDE.md / AGENTS.md        ← Reglas y convenciones │
+│   ├── Javadoc                          ← Lógica del código  │
+│   ├── comentarios                       │─→ Decisiones     │
+│   │                                    │  técnicas          │
+│   ├── Archivos Markdown junto al     │─→ Contexto         │
+│   │    código fuente                    adicional          │
+│   └── Archivos de documentación        ← Arquitectura y    │
+│                                            decisiones        │
 │                                                             │
-│   NEED:                                                     │
-│   ├── Clean, well-commented code                            │
-│   ├── Consistent, up-to-date documentation                  │
-│   └── Predictable repository structure                      │
+│   NECESITA:                                                 │
+│   ├── Código limpio y bien comentado                        │
+│   ├── Documentación consistente y actualizada               │
+│   └── Estructura de repositorio predecible                  │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **AI-targeted documentation is real and will be essential.**
-> A functional scheme where code documentation is clean and reliable
-> enables AI tools to effectively assist in the development and maintenance
-> process.
+> **La documentación orientada a IA es real y será esencial.**
+> Un esquema funcional donde la documentación del código es limpia y confiable
+> permite que las herramientas de IA asistan efectivamente en el proceso de
+> desarrollo y mantenimiento.
 
 ---
 
-## Key principles
+## Principios clave
 
 ```
   ┌─────────────────────────────────────────────────────────────┐
   │                                                             │
-  │  1. DOCUMENT AS CODE                                        │
-  │     → Versioned, traceable, inside the repository           │
+  │  1. DOCUMENTAR COMO CÓDIGO                                  │
+  │     → Versionado, trazable, dentro del repositorio          │
   │                                                             │
-  │  2. THE "WHY" > THE "WHAT"                                 │
-  │     → Code says what it does; documentation says why        │
+  │  2. EL "POR QUÉ" > EL "QUÉ"                                │
+  │     → El código dice qué hace; la documentación dice por qué│
   │                                                             │
-  │  3. KEEP IT UPDATED                                        │
-  │     → Outdated docs are worse than no docs at all           │
+  │  3. MANTENERLA ACTUALIZADA                                  │
+  │     → La documentación desactualizada es peor que ninguna   │
   │                                                             │
-  │  4. MULTI-AUDIENCE                                         │
-  │     → Different levels for different readers                │
+  │  4. MULTI-AUDIENCIA                                         │
+  │     → Diferentes niveles para diferentes lectores           │
   │                                                             │
-  │  5. DESIGN FOR AI FROM THE START                            │
-  │     → Clean code + tidy docs = better AI assistance         │
+  │  5. DISEÑAR PARA IA DESDE EL INICIO                         │
+  │     → Código limpio + docs ordenados = mejor asistencia IA  │
   │                                                             │
   └─────────────────────────────────────────────────────────────┘
 ```
