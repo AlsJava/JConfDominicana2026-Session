@@ -122,7 +122,7 @@ All values use environment variable placeholders for flexibility.
 | Class                                  | Purpose                                                                         |
 |----------------------------------------|---------------------------------------------------------------------------------|
 | `ObjectMapperConfiguration`            | Customizes `JsonMapper` and `XmlMapper` builders (date format, fail-on-unknown) |
-| `RestConfiguration`                    | Provides a `RestClient` bean with HTTP redirect following enabled               |
+| `RestClientConfiguration`                    | Provides a `RestClient` bean with HTTP redirect following enabled               |
 | `CQRSConfiguration`                    | Configures the CQRS command bus and handler scanning                            |
 | `ForyConfiguration`                    | Configures Apache Fory serialization framework                                  |
 | `OpenAPIConfiguration`                 | Configures Swagger/OpenAPI documentation endpoints                              |

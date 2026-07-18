@@ -1,2 +1,6 @@
 app:
   id: ${APP_ID:app-none}
+web:
+  converter:
+    fastjson2:
+      enabled: ${WEB_CONVERTER_FASTJSON2_ENABLED:true}

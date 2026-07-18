@@ -7,6 +7,9 @@ logging:
   file:
     name: ${logging.file.path}/${spring.application.name}/output.log
     path: ${LOGGING_PATH_DIRECTORY:./logs}
+  level:
+    root: INFO
+    org.alsjava.sessions: DEBUG
 log:
   request:
     enabled: ${LOG_REQUEST_ENABLED:true}
